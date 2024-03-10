@@ -1,0 +1,96 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('{% static "images/w1" %}');
+  background-size: cover; /* Cover the entire viewport */
+  background-repeat: no-repeat;
+  color: #333; /* Text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Header styles */
+header {
+  background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent grey background */
+  padding: 20px;
+  width: 100%; /* Full width */
+  text-align: center; /* Center text */
+}
+
+/* Navigation styles */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff; /* Link color */
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+nav ul li a:hover {
+  color: yellow; /* Hover color */
+}
+
+/* Profile information styles */
+.profile-info {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center; /* Center text */
+}
+
+.profile-info h2 {
+  margin-bottom: 10px;
+}
+
+.profile-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Profile actions styles */
+.profile-actions {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  border-radius: 10px;
+  text-align: center; /* Center text */
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Button hover background color */
+}

@@ -1,0 +1,45 @@
+body {
+    background-color: #f0f0f0; /* Set background color */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Make the body full height of the viewport */
+}
+
+form {
+    background-color: rgba(255, 255, 0, 0.5); /* Set transparent yellow background */
+    padding: 20px;
+    border-radius: 10px;
+    color: #008000; /* Set text color to bold green */
+    font-weight: bold; /* Make the text bold */
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button[type="submit"],
+form a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover,
+form a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

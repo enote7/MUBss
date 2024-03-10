@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>{% if form.instance.id %}Edit Task{% else %}Create Task{% endif %}</title>
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}">
+</head>
+<body style="background-image: url('https://wallpapercave.com/wp/wp2351113.jpg'); background-size: 100%; background-repeat: no-repeat;">
+    <h1>{% if form.instance.id %}Edit Task{% else %}Create Task{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'home' %}">Cancel</a>
+    </form>
+</body>
+</html>

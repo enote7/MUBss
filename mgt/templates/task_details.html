@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>{{ task.title }} - Task Details - Simple Task Manager</title>
+    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Dashboard</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="task-details">
+            <h2>{{ task.title }}</h2>
+            <p>Description: {{ task.description }}</p>
+            <p>Deadline: {{ task.deadline }}</p>
+            <p>Status: {{ task.status }}</p>
+            <div class="actions">
+                <a href="{% url 'edit_task' task.id %}" class="btn">Edit</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn">Delete</a>
+                {% if task.status != 'Done' %}
+                    <a href="{% url 'complete_task' task.id %}" class="btn">Mark as Completed</a>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Dashboard - Simple Task Manager</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body style="background-image: url('https://wallpaperaccess.com/full/5137785.jpg'); background-size: 100%; background-repeat: no-repeat;">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Tasks</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <!-- Theme switcher -->
+        <div class="qw" style="font-size: 1.2em;" id="theme-switcher" onclick="toggleTheme()">
+            🌙<em>Theme</em>
+        </div>
+    </header>
+    <main>
+        <section class="task-list">
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <H2>Welcome,  &nbsp;</H2><h1>{{ user.username }}</h1>&nbsp;
+                {% if user.profile_picture %}
+                    <img src="{{ user.profile_picture.url }}" alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+                {% else %}
+                    <img src="default_profile_picture.png" alt="Default Profile Picture" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+                {% endif %}
+            </div>
+            <h2>My Tasks</h2>
+            <ul>
+                {% for task in tasks %}
+                    <li>
+                        <h3>{{ task.title }}</h3>
+                        <p>Description: {{ task.description }}</p>
+                        <p>Deadline: {{ task.deadline }}</p>
+                        <p>Status: {{ task.status }}</p>
+                        <a href="{% url 'task_details' task.id %}">View Details</a>
+                        <a href="{% url 'edit_task' task.id %}">Edit</a>
+                        <a href="{% url 'delete_task' task.id %}">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="add-task">
+            <a href="{% url 'create_task' %}" class="btn">Add New Task</a>
+        </section>
+    </main>
+    <script>
+        // Function to toggle between dark and light themes
+        function toggleTheme() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+            body.classList.toggle("light-mode");
+
+            // Store the theme preference in local storage
+            var isDarkMode = body.classList.contains("dark-mode");
+            localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        }
+
+        // Check if the user has a theme preference stored in local storage
+        var storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "dark") {
+            toggleTheme(); // Apply dark theme if it was previously selected
+        }
+    </script>
+</body>
+</html>
